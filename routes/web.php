@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HelloController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', [HelloController::class, 'index']);
+Route::get('/login', [UserController::class, 'login'])->name('user.login');
+Route::post('/login', [UserController::class, 'authenticate'])->name('user.authenticate');
